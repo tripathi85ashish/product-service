@@ -14,11 +14,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.UUID;
+
 
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
 
 import com.product.entity.ProductEntity;
 import com.product.main.ProductServiceApplication;
@@ -38,10 +37,7 @@ public class ProductServiceTest
 	      return "http://localhost:" + port ;
 	  }
 
-	  @Test
-	  public void contextLoads() {
-	     	
-	  }
+	 
 	
 	  /**
 		 * Here we test that we can get all the products in the database
@@ -110,7 +106,7 @@ public class ProductServiceTest
 		 * Here we test that we can create a product using the POST method
 		 */
 	  @Test
-	  public void testCreateCar() {
+	  public void testCreateProduct() {
 		ProductEntity productEntity = new ProductEntity();
 		productEntity.setPrice(2000.00);
 		productEntity.setStatus(0);
@@ -121,7 +117,7 @@ public class ProductServiceTest
 
 	    ResponseEntity<String> postResponse = restTemplate.postForEntity(getRootUrl() + "/createProduct", productEntity, String.class);
 	    Assert.assertNotNull(postResponse);
-	  //  Assert.assertNotNull(postResponse.getBody());
+	  
 	  }
 	  
 	
